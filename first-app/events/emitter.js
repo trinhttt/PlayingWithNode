@@ -1,8 +1,13 @@
 // EventEmitter is a class (emitter is bộ phát)
-const EventEmitter = require('events');
+// const EventEmitter = require('events');
 
 // Create an instance of this class
-const emitter = new EventEmitter();
+// const emitter = new EventEmitter();
+
+const Logger = require('./emitterLogger');
+const logger = new Logger();
+logger.log('Trynh zz')
+
 
 // Register a listener
 // emitter.on('messageLogged', function() {
@@ -12,17 +17,18 @@ const emitter = new EventEmitter();
 // emitter.emit('messageLogged');
 
 // Or can use: add Listener and add arg
-emitter.addListener('messageLogged',(arg1, arg2) => {
+// *NOTE: use another EventEmitter instance EventEmitter but still listen signal
+logger.addListener('messageLogged',(arg1, arg2) => {
     console.log('add Listener way2', arg1, arg2)
 })
 
 // OP: 3 http://
-emitter.on('messageLogged2', (object) => {
+logger.on('messageLogged2', (object) => {
     console.log(object.id, object.url2)
 })
 
-const logger = require('./emitterLogger');
-logger.log()
+
+// logger.log()
 
 // Making a noise, produce - signalling 
 // Raise an event
