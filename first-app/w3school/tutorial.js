@@ -11,9 +11,9 @@ var z = x ** 2;
 
 /*
 ===	: equal value + type
-&& Logical AND 	x && y
-|| Logical OR 	x || y
-? : ? "Yes" : "No"
+&&: Logical AND 	x && y
+||: Logical OR 	x || y
+? ::  ? "Yes" : "No"
 */
 
 // JavaScript Data Types
@@ -109,7 +109,7 @@ var person1 = {
     }
 };
 
-//////////This Keyword
+///----This Keyword
 /**
  * The JavaScript this keyword refers to the object it belongs to.
  */
@@ -161,7 +161,7 @@ var person = {
 //The call() and apply() methods are predefined JavaScript methods. 
 //They can both be used to call an object method with another object as argument.
 
-var person = {
+var person1 = {
     fullName: function () {
         return this.firstName1 + " " + this.lastName;
     }
@@ -240,7 +240,7 @@ var pos = str.indexOf("locate", 15); //21
 They accept the same arguments (parameters), and return the same value?
 The two methods are NOT equal. These are the differences:
 The search() method cannot take a second start position argument.
-The indexOf() method cannot take powerful search values
+The indexOf() method cannot take powerful search values???
  */
 
 var str = "Please locate where 'locate' occurs!";
@@ -304,7 +304,7 @@ var text2 = text1.toLowerCase();//"Hello World!"
 ///------The concat() Method: joins two or more strings:
 var text1 = "Hello";
 var text2 = "World";
-var text3 = text1.concat(" 1 ", text2);//Hello 2 World!
+var text3 = text1.concat(" 2 ", text2);//Hello 2 World!
 var text = "Hello" + " " + "World!";// do the same
 
 ///-----The trim() method removes whitespace from both sides of a string
@@ -389,7 +389,7 @@ var z = x + y;         // z will be NaN5
 //NaN is a number: typeof NaN returns number:
 typeof NaN;            // returns "number"
 
-//- Infinity(vô cực)
+// Infinity(vô cực)
 //Infinity (or -Infinity) is the value JavaScript will return if you calculate a number outside the largest possible number.
 var myNumber = 2;
 while (myNumber != Infinity) {   // Execute until Infinity
@@ -639,10 +639,6 @@ function myFunction(value, index, array) {//myFunction(value)
     return value * 2;
 }
 
-function myFunction(value, index, array) {
-    return value > 18;
-}
-
 //The reduce() method runs a function on each array element to produce (reduce it to) a single value.
 var sum = numbers1.reduce(myFunction);
 var sum = numbers1.reduce(myFunction, 100);//100 is init value
@@ -650,11 +646,14 @@ function myFunction(total, value) {
     return total + value;
 }
 
-//The every() method check if ALL array values pass a test.
 var numbers = [45, 4, 9, 16, 25];
+function myFunction(value, index, array) {
+    return value > 18;
+}
+//The every() method check if ALL array values pass a test.
 var allOver18 = numbers.every(myFunction);//false
 
-//The some() method check if SOME array values pass a test.
+//The some() method check if SOME(atleast 1 pass) array values pass a test.
 var someOver18 = numbers.some(myFunction);//true
 
 //array.lastIndexOf(item, start)
@@ -870,7 +869,7 @@ lastName = "Doe";
 price = 19.90;
 discount = 0.10;
 
-// Declare and initiate at the beginning
+// Shoud: Declare and initiate at the beginning
 var lastName = "",
     price = 0;
 
@@ -936,11 +935,11 @@ if (myObj !== null && typeof myObj !== "undefined") { }
 //Reduce Activity in Loops
 //Bad:
 var i;
-for (i = 0; i < arr.length; i++) {}
+for (i = 0; i < arr.length; i++) { }
 
 //Better Code:
 var i;
 var l = arr.length;
-for (i = 0; i < l; i++) {}
+for (i = 0; i < l; i++) { }
 
 //cannot use:case,enum,... as variables, labels, or function names
