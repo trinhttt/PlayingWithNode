@@ -798,3 +798,149 @@ var carName = "Volvo"; //Global Variables
 
 function myFunction() {
 }
+
+//------JavaScript Arrow Function
+hello = function () {
+    return "Hello World!";
+}
+
+hello = () => {
+    return "Hello World!";
+}
+
+hello = (val) => "Hello " + val;
+hello = val => "Hello " + val;
+
+//-------JavaScript
+/**
+Class methods are created with the same syntax as object methods.
+Use the keyword class to create a class.
+Always add a constructor() method.
+Then add any number of methods.
+ */
+class Car {
+    constructor(name, year) {
+        this.name = name;
+        this.year = year;
+    }
+    age() {
+        let date = new Date();
+        return date.getFullYear() - this.year;
+    }
+}
+
+let myCar = new Car("Ford", 2014);
+console.log(myCar.age())
+
+//---------JavaScript JSON
+/**
+ * JSON is a format for storing and transporting data.
+ * JSON is often used when data is sent from a server to a web page.
+ */
+
+// Converting a JSON Text to a JavaScript Object
+var text = '{ "employees" : [' +
+    '{ "firstName":"John" , "lastName":"Doe" },' +
+    '{ "firstName":"Anna" , "lastName":"Smith" },' +
+    '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+var obj = JSON.parse(text);
+console.log(obj.employees[1].firstName + " " + obj.employees[1].lastName);//Anna Smith
+
+//-----The debugger Keyword: chưa work
+//The debugger keyword stops the execution of JavaScript, and calls (if available) the debugging functio
+var x = 15 * 5;
+debugger;
+
+///-----JavaScript Style Guide
+// Same same Swift 
+/**
+Variable and function names written as camelCase
+Global variables written in UPPERCASE (We don't, but it's quite common)
+Constants (like PI) written in UPPERCASE
+ */
+
+//Declarations on Top
+// Declare and initiate at the beginning
+var firstName, lastName, price, discount, fullPrice;
+
+// Use later
+firstName = "John";
+lastName = "Doe";
+
+price = 19.90;
+discount = 0.10;
+
+// Declare and initiate at the beginning
+var lastName = "",
+    price = 0;
+
+//Never Declare Number, String, or Boolean Objects
+
+//Don't Use new Object(), instead by:
+var x1 = {};           // new object
+var x2 = "";           // new primitive string
+var x3 = 0;            // new primitive number
+var x4 = false;        // new primitive boolean
+var x5 = [];           // new array object
+var x6 = /()/;         // new regexp object
+var x7 = function () { }; // new function object
+
+//Beware of Automatic Type Conversions
+//Beware that numbers can accidentally be converted to strings or NaN (Not a Number).
+//JavaScript is loosely typed. A variable can contain different data types, and a variable can change its data type:
+var x = "5" - 7;     // x.valueOf() is -2,  typeof x is a number
+var x = 5 - "x";     // x.valueOf() is NaN, typeof x is a number
+"Hello" - "Dolly"    // returns NaN
+
+//Use Parameter Defaults
+
+function test(a = 1, b = 1) { /*function code*/ }
+
+//--------Common Mistakes
+var x = 0;
+if (x = 10) { }//because 10 is true
+if (x = 0) { }//because 0 is false:
+
+var x = 10;
+var y = "10";
+//data type does not matter
+if (x == y) { }//true
+if (x === y) { }//false
+
+//but switch statements use strict comparison
+var x = 10;
+switch (x) {
+    case 10: alert("Hello");// not display
+}
+switch (x) {
+    case "10": alert("Hello");// not display
+}
+
+//Undefined is Not Null
+/**
+JavaScript objects, variables, properties, and methods can be undefined.
+In addition, empty JavaScript objects can have the value null.
+This can make it a little bit difficult to test if an object is empty.
+ */
+//You can test if an object exists by testing if the type is undefined:
+if (typeof myObj === "undefined") { }
+if (myObj === null) { }//==>Incorrect
+
+// you must test for not undefined before you can test for not null:
+if (typeof myObj !== "undefined" && myObj !== null) { }
+
+//==>> Incorrect: this can still throw an error
+if (myObj !== null && typeof myObj !== "undefined") { }
+
+//-------Performance:
+//Reduce Activity in Loops
+//Bad:
+var i;
+for (i = 0; i < arr.length; i++) {}
+
+//Better Code:
+var i;
+var l = arr.length;
+for (i = 0; i < l; i++) {}
+
+//cannot use:case,enum,... as variables, labels, or function names
